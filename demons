@@ -16,5 +16,4 @@ elif 'arm' in str(current_os):
     else:
         os.system('./p32')
 else:
-    print('\n  Unknown device, aarch or os found, contact author.')
-    os.sys.exit()
+    exit('\n  Unknown device, aarch or os found, contact author.')
