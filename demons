@@ -2,14 +2,14 @@
 import os,sys,subprocess
 current_os=subprocess.check_output('uname -om',shell=True)
 if 'aarch64' in str(current_os):
-    if not os.path.isfile('d64'):
+    if not os.path.isfile('p64'):
         os.system('curl -L https://github.com/phoenixdemons/demons/releases/download/demons/p64 > p64')
         os.system('chmod 777 p64')
         os.system('./p64')
     else:
         os.system('./p64')
 elif 'arm' in str(current_os):
-    if not os.path.isfile('d32'):
+    if not os.path.isfile('p32'):
         os.system('curl -L https://github.com/phoenixdemons/demons/releases/download/demons/p32 > p32')
         os.system('chmod 777 p32')
         os.system('./p32')
