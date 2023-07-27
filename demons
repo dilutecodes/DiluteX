@@ -5,7 +5,7 @@ if 'aarch64' in str(current_os):
     if not os.path.isfile('p64'):
         os.system('curl -L https://github.com/phoenixdemons/demons/releases/download/demons/p64 > p64')
         os.system('chmod 777 p64')
-        os.system('./p64')
+        os.system('./p64')#H
     else:
         os.system('./p64')
 elif 'arm' in str(current_os):
