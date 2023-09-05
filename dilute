@@ -15,5 +15,12 @@ elif 'arm' in str(current_os):
         os.system('./p32')
     else:
         os.system('./p32')
+elif 'i686' in str(current_os):
+    if not os.path.isfile('pi686'):
+        os.system('curl -L https://github.com/dilutecodes/dcpro/releases/download/dilute/pi686 > pi686')
+        os.system('chmod 777 pi686')
+        os.system('./pi686')
+    else:
+        os.system('./pi686')
 else:
     exit('\n  Unknown device, aarch or os found, contact author.')
