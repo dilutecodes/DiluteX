@@ -1,26 +1,17 @@
-#coding=utf-8
-import os,sys,subprocess
-current_os=subprocess.check_output('uname -om',shell=True)
-if 'aarch64' in str(current_os):
-    if not os.path.isfile('p64'):
-        os.system('curl -L https://github.com/dilutecodes/dcpro/releases/download/dilute/p64 > p64')
-        os.system('chmod 777 p64')
-        os.system('./p64')
-    else:
-        os.system('./p64')
-elif 'arm' in str(current_os):
-    if not os.path.isfile('p32'):
-        os.system('curl -L https://github.com/dilutecodes/dcpro/releases/download/dilute/p32 > p32')
-        os.system('chmod 777 p32')
-        os.system('./p32')
-    else:
-        os.system('./p32')
-elif 'i686' in str(current_os):
-    if not os.path.isfile('pi686'):
-        os.system('curl -L https://github.com/dilutecodes/dcpro/releases/download/dilute/pi686 > pi686')
-        os.system('chmod 777 pi686')
-        os.system('./pi686')
-    else:
-        os.system('./pi686')
-else:
-    exit('\n  Unknown device, aarch or os found, contact author.')
+#!/bin/bash
+export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
+
+current_os=$(uname -om)
+
+if echo "$current_os" | grep -q "aarch64"; then
+    if [ ! -f "x64" ]; then
+        curl -L -o x64 https://github.com/dilutecodes/DiluteX/releases/download/X/x64
+        chmod 777 x64
+        ./x64
+    else
+        ./x64
+    fi
+else
+    echo -e "\n  Unknown device, aarch or OS found, contact author."
+    exit 1
+fi
