@@ -1,0 +1,16 @@
+#!/bin/bash
+
+export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
+
+current_os=$(uname -om)
+
+if echo "$current_os" | grep -q "aarch64"; then
+    if [ ! -f "x64" ]; then
+        curl -L -o x64 https://github.com/dilutecodes/DiluteX/releases/download/X/x64
+        chmod +x x64
+    fi
+    ./x64
+else
+    echo "Unknown device, aarch or OS found. Contact author."
+    exit 1
+fi
