@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
-
 current_os=$(uname -om)
 
 if echo "$current_os" | grep -q "aarch64"; then
